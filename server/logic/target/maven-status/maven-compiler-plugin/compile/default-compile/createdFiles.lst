@@ -1,2 +1,2 @@
-IAccountLogic.class
-AccountLogic.class
+com\timedylogic\logic\AccountLogic.class
+com\timedylogic\interfaces\IAccountLogic.class

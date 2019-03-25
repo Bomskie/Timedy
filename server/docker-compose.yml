@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  mysql-docker-container:
+    image: mysql:latest
+    environment:
+      - MYSQL_DATABASE=timedydb
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=root
+        - MYSQL_ROOT_PASSWORD=root
+    volumes:
+      - /data/mysql
+
+  spring-boot-jpa-app:
+    image: spring-boot-jpa-image
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    depends_on:
+      - mysql-docker-container
+    ports:
+      - 8091:8090
+    volumes:
+      - /data/spring-boot-app

@@ -30,7 +30,11 @@ public class LoginController {
     public ResponseEntity<String> register(@RequestParam(name = "email", required = true) String email, @RequestParam(name = "firstName", required = true) String firstName, @RequestParam(name = "lastName", required = true) String lastName, @RequestParam(name = "password", required = true) String password,@RequestParam(name = "age", required = true) int age){
         User user = accountLogic.register(email,password,firstName,lastName,age);
         if(user != null){
-            return new ResponseEntity<String>(user.getEmail(),HttpStatus.OK);
+            if (user.getEmail() != null) {
+                return new ResponseEntity<String>(user.getEmail(),HttpStatus.OK);
+            }else{
+                return new ResponseEntity<String>("Email Bestaat Al",HttpStatus.OK);
+            }
         }else {
             return new ResponseEntity<>("Foutje....",HttpStatus.INTERNAL_SERVER_ERROR);
         }

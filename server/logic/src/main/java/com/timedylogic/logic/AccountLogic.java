@@ -24,8 +24,14 @@ public class AccountLogic implements IAccountLogic {
     }
 
     public User register(String email, String password, String firstname, String lastname, int age) {
-        User user = new User(email,BCrypt.hashpw(password ,BCrypt.gensalt()),firstname,lastname,age);
-        return accountService.create(user);
+        if(accountService.getUser(email) == null){
+            User user = new User(email,BCrypt.hashpw(password ,BCrypt.gensalt()),firstname,lastname,age);
+            return accountService.create(user);
+        }else{
+            return new User();
+
+        }
+
 
 
     }
