@@ -1,0 +1,6 @@
+com\timedy\models\User.class
+com\timedy\enums\Priority.class
+com\timedy\models\Project.class
+com\timedy\models\Task.class
+com\timedy\models\Activity.class
+com\timedy\enums\Status.class
