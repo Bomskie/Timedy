@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {User} from '../models/User';
 import{Login} from '../models/login';
-import {AccountService} from '../account.service';
+//import {AccountService} from '../account.service';
 
 @Component({
   selector: 'app-login',
@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }
